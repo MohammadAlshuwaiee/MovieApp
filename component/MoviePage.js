@@ -24,8 +24,13 @@ const MoviePage = ({ navigation }) => {
         </DetailsText>
       </DetailsWrapper>
       <TouchableOpacity>
-        <Watchbutton onPress={() => navigation.navigate("Home")}>
+        <Watchbutton onPress={() => navigation.navigate("Watchnow")}>
           Watch now
+        </Watchbutton>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Watchbutton onPress={() => navigation.navigate("Reviews")}>
+          Reviews
         </Watchbutton>
       </TouchableOpacity>
     </HomeWrapper>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 
 const HomeWrapper = styled.View`
@@ -13,6 +13,7 @@ const Home = ({ navigation }) => {
     <HomeWrapper>
       <Text>Sign Up</Text>
       <Text>Sign In</Text>
+
       <Text onPress={() => navigation.navigate("Movie Detail")}>
         Go to Movie Details
       </Text>
