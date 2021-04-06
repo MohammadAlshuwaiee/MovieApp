@@ -12,7 +12,7 @@ import {
 
 import LinearGradient from "react-native-linear-gradient";
 
-import { ProgressBar } from "../components";
+import { ProgressBar } from "../component";
 
 import { COLORS, SIZES, FONTS, icons } from "../constants";
 

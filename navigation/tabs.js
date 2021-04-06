@@ -8,7 +8,7 @@ import {
 import { Home } from "../screens";
 import { COLORS, FONTS, icons } from "../constants";
 
-import { TabIcon } from "../components";
+import { TabIcon } from "../component";
 
 const Tab = createBottomTabNavigator();
 

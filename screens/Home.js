@@ -11,7 +11,7 @@ import {
   Animated,
 } from "react-native";
 
-import { Profiles, ProgressBar } from "../components";
+import { Profiles, ProgressBar } from "../component";
 import { dummyData, COLORS, SIZES, FONTS, icons, images } from "../constants";
 import { ScrollView } from "react-native-gesture-handler";
 
