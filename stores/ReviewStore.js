@@ -27,4 +27,30 @@ class Review {
       console.log(error);
     }
   };
+
+  updateReview = async (updatedReview, movieID) => {
+    try {
+      await instance.put(`/${movieID}/${updatedReview.id}`, updatedReview);
+      const review = this.reviews.find(
+        (review) => review.id === updatedReview.id
+      );
+      for (const key in review) {
+        review[key] = updatedReview[key];
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  deleteReview = async (reviewID, movieID) => {
+    try {
+      await instance.delete(`/${movieID}/${reviewID}`);
+      this.reviews = this.reviews.filter((review) => review.id !== +reviewID);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
+const reviewStore = new ReviewStore();
+reviewStore.fetchReviews();
+export default reviewStore;
