@@ -35,10 +35,10 @@ class RoomStore {
       console.log(error);
     }
   };
-  deleteRoom = async (id) => {
+  deleteRoom = async (roomID) => {
     try {
       await instance.delete(`/rooms/${id}`);
-      this.rooms = this.rooms.filter((room) => room.id !== +id);
+      this.rooms = this.rooms.filter((room) => room.id !== +roomID);
     } catch (error) {
       console.log(error);
     }
