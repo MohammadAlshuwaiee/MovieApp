@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, Image } from "react-native";
 import { observer } from "mobx-react";
 import {
   Posterimage,
@@ -7,8 +7,10 @@ import {
   DetailsWrapper,
   Watchbutton,
   DetailsText,
+  MovieText,
 } from "../styles";
 import { Rating, AirbnbRating } from "react-native-ratings"; //5.3.0
+import { Button } from "native-base";
 
 const MoviePage = ({ navigation, route }) => {
   const { movie } = route.params;
@@ -23,11 +25,17 @@ const MoviePage = ({ navigation, route }) => {
         <DetailsText>Genre: {movie.genre}</DetailsText>
         <DetailsText>Age: {movie.ageRestriction}</DetailsText>
         <DetailsText>
-          Rating: {movie.rating} <AirbnbRating count={1} size={1} />
+          Rating: {movie.rating}{" "}
+          <Image
+            style={{ height: 20, width: 20 }}
+            source={{
+              uri: "https://vectorified.com/images/gold-star-icon-5.png",
+            }}
+          />
         </DetailsText>
       </DetailsWrapper>
       <TouchableOpacity>
-        <Watchbutton>Movie: {movie.name}</Watchbutton>
+        <MovieText>Movie Name : {movie.name}</MovieText>
       </TouchableOpacity>
       <TouchableOpacity>
         <Watchbutton

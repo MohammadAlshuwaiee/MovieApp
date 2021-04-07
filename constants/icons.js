@@ -9,6 +9,7 @@ const search = require("../assets/icons/search.png");
 const star = require("../assets/icons/star.png");
 const upload = require("../assets/icons/upload.png");
 const add = require("../assets/icons/add.png");
+const Star = require("../assets/icons/star.png");
 export default {
   airplay,
   home,
@@ -21,4 +22,5 @@ export default {
   star,
   upload,
   add,
+  Star,
 };

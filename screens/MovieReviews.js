@@ -20,43 +20,46 @@ const MovieReviews = ({ navigation, route }) => {
         style={{
           color: "red",
           textAlign: "center",
-          fontWeight: "bold",
           fontSize: 26,
+          marginBottom: 70,
         }}
       >
-        Movie Reviews {movie.name}
+        Movie Reviews
       </Text>
 
       <Image
         style={{
-          width: 150,
-          height: 250,
+          width: 200,
+          height: 200,
+          borderRadius: 20,
         }}
         source={{ uri: `${movie.image}` }}
       />
-
-      <AirbnbRating
-        count={10}
-        size={25}
-        reviews={[
-          "Terrible",
-          "Bad",
-          "Meh",
-          "OK",
-          "Good",
-          "Hmm...",
-          "Very Good",
-          "Wow",
-          "Amazing",
-          "Unbelievable",
-        ]}
-      />
-
+      <Text style={{ color: "red", fontSize: 20, paddingTop: 40 }}>
+        {movie.name}
+      </Text>
+      <View style={styles.container}>
+        <AirbnbRating
+          count={10}
+          size={25}
+          reviews={[
+            "Terrible",
+            "Bad",
+            "Meh",
+            "OK",
+            "Good",
+            "Hmm...",
+            "Very Good",
+            "Wow",
+            "Amazing",
+            "Unbelievable",
+          ]}
+        />
+      </View>
       <TextInput style={styles.Title} placeholder="Enter your Review" />
       <TouchableOpacity>
         <Text style={styles.SubmitButton}>Submit</Text>
       </TouchableOpacity>
-
       <Tabs />
     </View>
   );
@@ -79,15 +82,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 20,
     alignItems: "center",
+    textAlign: "center",
+    borderRadius: 6,
   },
 
   SubmitButton: {
     justifyContent: "center",
     fontSize: 20,
-    backgroundColor: "red",
-    color: "white",
-    borderRadius: 20,
-    width: 120,
+
+    color: "red",
+    borderRadius: 5,
     alignSelf: "center",
     textAlign: "center",
   },
