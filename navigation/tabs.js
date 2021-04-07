@@ -13,7 +13,6 @@ import { TabIcon } from "../component";
 import MoviePage from "../screens/MoviePage";
 import MovieReviews from "../screens/MovieReviews";
 import MovieList from "../screens/MovieList";
-import MovieDetails from "../screens/MovieDetails";
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -45,6 +44,23 @@ const ProfileNavigator = () => {
     </ProfileStack.Navigator>
   );
 };
+
+const MovieStack = createStackNavigator();
+const MovieNavigator = () => {
+  return (
+    <MovieStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName={"MovieList"}
+    >
+      <MovieStack.Screen name="MovieList" component={MovieList} />
+      <MovieStack.Screen name="MoviePage" component={MoviePage} />
+      <MovieStack.Screen name="Movie Reviews" component={MovieReviews} />
+    </MovieStack.Navigator>
+  );
+};
+
 const Tabs = ({ navigation }) => {
   return (
     <Tab.Navigator
@@ -73,7 +89,7 @@ const Tabs = ({ navigation }) => {
       />
       <Tab.Screen
         name="Play"
-        component={MovieDetails}
+        component={MovieNavigator}
         options={{
           tabBarIcon: ({ focused }) => (
             <TabIcon focused={focused} icon={icons.play_button} />

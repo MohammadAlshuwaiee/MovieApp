@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text } from "react-native";
-
+import { observer } from "mobx-react";
 import {
   Posterimage,
   HomeWrapper,
@@ -8,28 +8,31 @@ import {
   Watchbutton,
   DetailsText,
 } from "../styles";
+import { Rating, AirbnbRating } from "react-native-ratings"; //5.3.0
 
-const MoviePage = ({ navigation }) => {
+const MoviePage = ({ navigation, route }) => {
+  const { movie } = route.params;
+
   return (
     <HomeWrapper>
       <Posterimage
         onPress={() => navigation.navigate("Home")}
-        source={{ uri: "https://bit.ly/2Q0iCUs" }}
+        source={{ uri: `${movie.image}` }}
       />
       <DetailsWrapper>
-        <DetailsText onPress={() => alert("Buzz Lightyear")}>Genre</DetailsText>
-        <DetailsText onPress={() => alert("Buzz Lightyear")}>Age</DetailsText>
-        <DetailsText onPress={() => alert("Buzz Lightyear")}>
-          Rating
+        <DetailsText>Genre: {movie.genre}</DetailsText>
+        <DetailsText>Age: {movie.ageRestriction}</DetailsText>
+        <DetailsText>
+          Rating: {movie.rating} <AirbnbRating count={1} size={1} />
         </DetailsText>
       </DetailsWrapper>
       <TouchableOpacity>
-        <Watchbutton onPress={() => navigation.navigate("Watchnow")}>
-          Movie
-        </Watchbutton>
+        <Watchbutton>Movie: {movie.name}</Watchbutton>
       </TouchableOpacity>
       <TouchableOpacity>
-        <Watchbutton onPress={() => navigation.navigate("Reviews")}>
+        <Watchbutton
+          onPress={() => navigation.navigate("Reviews", { movie: movie })}
+        >
           Reviews
         </Watchbutton>
       </TouchableOpacity>
@@ -37,4 +40,4 @@ const MoviePage = ({ navigation }) => {
   );
 };
 
-export default MoviePage;
+export default observer(MoviePage);

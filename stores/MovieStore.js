@@ -15,6 +15,7 @@ class MovieStore {
       const response = await instance.get("/movies");
       this.movies = response.data;
       this.loading = false;
+      console.log(this.movies);
     } catch (error) {
       console.error(error);
     }
@@ -63,6 +64,5 @@ class MovieStore {
 }
 
 const movieStore = new MovieStore();
-movieStore.fetchMovies();
 
 export default movieStore;

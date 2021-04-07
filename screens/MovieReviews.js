@@ -5,16 +5,15 @@ import {
   View,
   StyleSheet,
   Button,
+  Image,
   TouchableOpacity,
 } from "react-native";
 import Constants from "expo-constants";
 import { Rating, AirbnbRating } from "react-native-ratings"; //5.3.0
 import Tabs from "../navigation/tabs";
-import movieStore from "../stores/MovieStore";
 
-const movie = movieStore.movies.find((id) => movie.id);
-
-const MovieReviews = ({ navigation }) => {
+const MovieReviews = ({ navigation, route }) => {
+  const { movie } = route.params;
   return (
     <View style={styles.container}>
       <Text
@@ -25,32 +24,39 @@ const MovieReviews = ({ navigation }) => {
           fontSize: 26,
         }}
       >
-        Movie Reviews
+        Movie Reviews {movie.name}
       </Text>
 
-      <View style={styles.ReviewWrapper}>
-        <AirbnbRating
-          count={10}
-          size={25}
-          reviews={[
-            "Terrible",
-            "Bad",
-            "Meh",
-            "OK",
-            "Good",
-            "Hmm...",
-            "Very Good",
-            "Wow",
-            "Amazing",
-            "Unbelievable",
-          ]}
-        />
+      <Image
+        style={{
+          width: 150,
+          height: 250,
+        }}
+        source={{ uri: `${movie.image}` }}
+      />
 
-        <TouchableOpacity>
-          <TextInput style={styles.Title} placeholder="Enter your Review" />
-          <Text style={styles.SubmitButton}>Submit</Text>
-        </TouchableOpacity>
-      </View>
+      <AirbnbRating
+        count={10}
+        size={25}
+        reviews={[
+          "Terrible",
+          "Bad",
+          "Meh",
+          "OK",
+          "Good",
+          "Hmm...",
+          "Very Good",
+          "Wow",
+          "Amazing",
+          "Unbelievable",
+        ]}
+      />
+
+      <TextInput style={styles.Title} placeholder="Enter your Review" />
+      <TouchableOpacity>
+        <Text style={styles.SubmitButton}>Submit</Text>
+      </TouchableOpacity>
+
       <Tabs />
     </View>
   );
@@ -58,29 +64,21 @@ const MovieReviews = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
     paddingTop: Constants.statusBarHeight,
     backgroundColor: "black",
-  },
-  ReviewWrapper: {
-    flex: 2,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: "black",
-    paddingTop: 250,
   },
 
   Title: {
     backgroundColor: "#fff",
-    borderRadius: 30,
-    width: 350,
-    height: 200,
+
+    width: 300,
+    height: 40,
     fontSize: 20,
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
+    marginBottom: 20,
+    alignItems: "center",
   },
 
   SubmitButton: {
@@ -93,20 +91,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     textAlign: "center",
   },
-
-  // tite: {
-  //   fontSize: 24,
-  //   textAlign: "center",
-  //   color: "#34495e",
-  // },
-  // paragraph: {
-  //   margin: 10,
-  //   marginTop: 40,
-  //   fontSize: 18,
-  //   fontWeight: "bold",
-  //   textAlign: "center",
-  //   color: "#34495e",
-  // },
 });
 
 export default MovieReviews;
