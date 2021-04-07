@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 
 import {
   Posterimage,
@@ -25,7 +25,7 @@ const MoviePage = ({ navigation }) => {
       </DetailsWrapper>
       <TouchableOpacity>
         <Watchbutton onPress={() => navigation.navigate("Watchnow")}>
-          Watch now
+          Movie
         </Watchbutton>
       </TouchableOpacity>
       <TouchableOpacity>

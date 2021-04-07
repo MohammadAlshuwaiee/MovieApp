@@ -46,7 +46,6 @@ const Home = ({ navigation }) => {
             }}
           />
         </TouchableOpacity>
-
         <TouchableOpacity
           style={{
             justifyContent: "center",
@@ -54,7 +53,7 @@ const Home = ({ navigation }) => {
             height: 50,
             width: 50,
           }}
-          onPress={() => console.log("Screen Mirror")}
+          onPress={() => navigation.navigate("Screen Mirror")}
         >
           <Image
             source={icons.airplay}
@@ -246,7 +245,10 @@ const Home = ({ navigation }) => {
             alignItems: "center",
           }}
         >
-          <Text style={{ flex: 1, color: COLORS.white, ...FONTS.h2 }}>
+          <Text
+            onPress={() => navigation.navigate("Reviews")}
+            style={{ flex: 1, color: COLORS.white, ...FONTS.h2 }}
+          >
             Continue Watching
           </Text>
 

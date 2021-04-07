@@ -4,15 +4,48 @@ import {
   createBottomTabNavigator,
   BottomTabBar,
 } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import { Home } from "../screens";
 import { COLORS, FONTS, icons } from "../constants";
 
 import { TabIcon } from "../component";
+import MoviePage from "../screens/MoviePage";
+import MovieReviews from "../screens/MovieReviews";
+import MovieList from "../screens/MovieList";
+import MovieDetails from "../screens/MovieDetails";
 
 const Tab = createBottomTabNavigator();
+const HomeStack = createStackNavigator();
+const HomeNavigator = () => {
+  return (
+    <HomeStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName={"Home"}
+    >
+      <HomeStack.Screen name="Home" component={Home} />
+      <HomeStack.Screen name="Reviews" component={MovieReviews} />
+    </HomeStack.Navigator>
+  );
+};
 
-const Tabs = () => {
+const ProfileStack = createStackNavigator();
+const ProfileNavigator = () => {
+  return (
+    <ProfileStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName={"Profile"}
+    >
+      <ProfileStack.Screen name="Profile" component={Profile} />
+      <ProfileStack.Screen name="Friends" component={Friends} />
+    </ProfileStack.Navigator>
+  );
+};
+const Tabs = ({ navigation }) => {
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -31,7 +64,7 @@ const Tabs = () => {
     >
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={HomeNavigator}
         options={{
           tabBarIcon: ({ focused }) => (
             <TabIcon focused={focused} icon={icons.home} />
@@ -40,7 +73,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         name="Play"
-        component={Home}
+        component={MovieDetails}
         options={{
           tabBarIcon: ({ focused }) => (
             <TabIcon focused={focused} icon={icons.play_button} />
@@ -48,11 +81,11 @@ const Tabs = () => {
         }}
       />
       <Tab.Screen
-        name="Search"
+        name="Add"
         component={Home}
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} icon={icons.search} />
+            <TabIcon focused={focused} icon={icons.add} />
           ),
         }}
       />

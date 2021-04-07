@@ -9,6 +9,7 @@ export const HomeWrapper = styled.View`
   flex: 1;
   align-items: center;
   padding-top: 100px;
+  background-color: black;
 `;
 
 export const DetailsWrapper = styled.View`
@@ -22,6 +23,8 @@ export const DetailsWrapper = styled.View`
 export const DetailsText = styled.Text`
   margin-right: 15px;
   margin-left: 15px;
+  color: red;
+  font-size: 15;
 `;
 
 export const Watchbutton = styled.Text`
