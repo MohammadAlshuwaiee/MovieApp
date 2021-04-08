@@ -10,6 +10,9 @@ import { TabIcon } from "../component";
 import MoviePage from "../screens/MoviePage";
 import MovieReviews from "../screens/MovieReviews";
 import MovieList from "../screens/MovieList";
+import RoomList from "../screens/roomPageStuff/RoomList";
+// import AddRoomPage from "../screens/roomPageStuff/AddRoomPage";
+import ReviewList from "../screens/reviewStuff/ReviewList";
 
 const Tab = createBottomTabNavigator();
 // Create Home stackNavigator
@@ -26,6 +29,36 @@ const HomeNavigator = () => {
     </HomeStack.Navigator>
   );
 };
+
+const RoomStack = createStackNavigator();
+
+// const RoomNavigator = () => {
+//   return (
+//     <RoomStack.Navigator
+//       screenOptions={{
+//         headerShown: false,
+//       }}
+//       initialRouteName={"roomList"}
+//     >
+//       {/* <RoomStack.Screen name="roomList" component={AddRoomPage} /> */}
+//       <RoomStack.Screen name="roomList" component={AddRoomPage} />
+//     </RoomStack.Navigator>
+//   );
+// };
+const RoomNavigator = () => {
+  return (
+    <RoomStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      initialRouteName={"roomList"}
+    >
+      {/* <RoomStack.Screen name="roomList" component={AddRoomPage} /> */}
+      <RoomStack.Screen name="roomList" component={RoomList} />
+    </RoomStack.Navigator>
+  );
+};
+
 // Create Profile stackNavigator
 const ProfileStack = createStackNavigator();
 const ProfileNavigator = () => {
@@ -53,7 +86,8 @@ const MovieNavigator = () => {
     >
       <MovieStack.Screen name="MovieList" component={MovieList} />
       <MovieStack.Screen name="MoviePage" component={MoviePage} />
-      <MovieStack.Screen name="Movie Reviews" component={MovieReviews} />
+      <MovieStack.Screen name="Reviews" component={ReviewList} />
+      <MovieStack.Screen name="Add Reviews" component={MovieReviews} />
     </MovieStack.Navigator>
   );
 };
@@ -95,14 +129,14 @@ const Tabs = ({ navigation }) => {
       />
       <Tab.Screen
         name="Add"
-        component={Home}
+        component={RoomNavigator}
         options={{
           tabBarIcon: ({ focused }) => (
             <TabIcon focused={focused} icon={icons.add} />
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Profile"
         component={Home}
         options={{
@@ -110,7 +144,7 @@ const Tabs = ({ navigation }) => {
             <TabIcon focused={focused} icon={icons.profile} />
           ),
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };

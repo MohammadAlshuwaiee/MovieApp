@@ -14,10 +14,17 @@ import {
 import { Profiles, ProgressBar } from "../component";
 import { dummyData, COLORS, SIZES, FONTS, icons, images } from "../constants";
 import { ScrollView } from "react-native-gesture-handler";
+import { observer } from "mobx-react";
+
+import authStore from "../stores/AuthStore";
 
 const Home = ({ navigation }) => {
   const newSeasonScrollX = useRef(new Animated.Value(0)).current;
 
+  const signOut = async () => {
+    await authStore.signout();
+    navigation.replace("signin");
+  };
   function renderHeader() {
     return (
       <View
@@ -53,12 +60,12 @@ const Home = ({ navigation }) => {
             height: 50,
             width: 50,
           }}
-          onPress={() => navigation.navigate("Screen Mirror")}
+          onPress={signOut}
         >
           <Image
-            source={icons.airplay}
+            source={icons.Logout}
             style={{
-              width: 25,
+              width: 30,
               height: 25,
               tintColor: COLORS.primary,
             }}
@@ -343,4 +350,4 @@ const Home = ({ navigation }) => {
   );
 };
 
-export default Home;
+export default observer(Home);

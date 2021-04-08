@@ -19,22 +19,23 @@ function MovieList({ navigation }) {
   ));
   return (
     <View style={{ backgroundColor: "black", flex: 1 }}>
-      <Text
-        style={{
-          color: "white",
-          alignSelf: "center",
-          marginTop: 20,
-          fontSize: 20,
-          paddingTop: 5,
-          fontWeight: "bold",
-        }}
-      >
-        Movie List
-      </Text>
-      {/*  List of Movie   */}
-      <List style={{ justifyContent: "center", marginTop: 80 }}>
-        {moviesList}
-      </List>
+      <View style={{ marginTop: 60 }}>
+        <Text
+          style={{
+            color: "white",
+            alignSelf: "center",
+            fontWeight: "bold",
+            fontSize: 20,
+            paddingTop: 10,
+            letterSpacing: 2,
+            fontWeight: "bold",
+            // backgroundColor: "red",
+          }}
+        >
+          Movie List
+        </Text>
+      </View>
+      <List>{moviesList}</List>
     </View>
   );
 }

@@ -50,12 +50,10 @@ const MoviePage = ({ navigation, route }) => {
       <TouchableOpacity>
         <MovieText>Movie Name : {movie.name}</MovieText>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <Watchbutton
-          onPress={() => navigation.navigate("Movie Reviews", { movie: movie })}
-        >
-          Reviews
-        </Watchbutton>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Reviews", { movie: movie })}
+      >
+        <Watchbutton>Reviews</Watchbutton>
       </TouchableOpacity>
     </HomeWrapper>
   );
