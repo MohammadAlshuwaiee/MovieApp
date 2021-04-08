@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+//import from instance
 import instance from "./instance";
 
 class Review {
@@ -8,6 +9,7 @@ class Review {
     makeAutoObservable(this);
   }
 
+  // get reviews
   fetchReviews = async (movieID) => {
     try {
       const res = await instance.get(`/${movieID}/reviews`);
@@ -17,7 +19,7 @@ class Review {
       console.log(error);
     }
   };
-
+  // create review
   createReview = async (newReview) => {
     try {
       const res = await instance.post("/createReview", newReview);
@@ -27,7 +29,7 @@ class Review {
       console.log(error);
     }
   };
-
+  //update reviews
   updateReview = async (updatedReview, movieID) => {
     try {
       await instance.put(`/${movieID}/${updatedReview.id}`, updatedReview);
@@ -41,7 +43,7 @@ class Review {
       console.log(error);
     }
   };
-
+  //delete reviews
   deleteReview = async (reviewID, movieID) => {
     try {
       await instance.delete(`/${movieID}/${reviewID}`);

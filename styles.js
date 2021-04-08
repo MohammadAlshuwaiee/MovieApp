@@ -5,6 +5,7 @@ export const Posterimage = styled.Image`
   height: 200px;
   align-self: center;
   border-radius: 20;
+  margin-top: 10;
 `;
 export const HomeWrapper = styled.View`
   flex: 1;
@@ -24,7 +25,7 @@ export const DetailsWrapper = styled.View`
 export const DetailsText = styled.Text`
   margin-right: 15px;
   margin-left: 15px;
-  color: red;
+  color: white;
   font-size: 15;
   padding-top: 35px;
   margin-bottom: 35px;
@@ -32,12 +33,12 @@ export const DetailsText = styled.Text`
 `;
 
 export const Watchbutton = styled.Text`
-  color: red;
+  color: white;
   font-size: 20;
   padding-top: 15;
 `;
 
 export const MovieText = styled.Text`
-  color: red;
+  color: white;
   font-size: 20;
 `;

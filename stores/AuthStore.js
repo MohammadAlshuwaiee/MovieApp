@@ -15,7 +15,7 @@ class AuthStore {
   constructor() {
     makeAutoObservable(this);
   }
-
+  // signup function
   signup = async (userData) => {
     try {
       await instance.post("/signup", userData);
@@ -24,7 +24,7 @@ class AuthStore {
       console.error(error);
     }
   };
-
+  // signin function
   signin = async (userData) => {
     try {
       const res = await instance.post("/signin", userData);

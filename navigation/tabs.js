@@ -1,13 +1,10 @@
 import React from "react";
-import { View, Image, TouchableOpacity, Text, StyleSheet } from "react-native";
-import {
-  createBottomTabNavigator,
-  BottomTabBar,
-} from "@react-navigation/bottom-tabs";
+
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { Home } from "../screens";
-import { COLORS, FONTS, icons } from "../constants";
+import { COLORS, icons } from "../constants";
 
 import { TabIcon } from "../component";
 import MoviePage from "../screens/MoviePage";
@@ -15,6 +12,7 @@ import MovieReviews from "../screens/MovieReviews";
 import MovieList from "../screens/MovieList";
 
 const Tab = createBottomTabNavigator();
+// Create Home stackNavigator
 const HomeStack = createStackNavigator();
 const HomeNavigator = () => {
   return (
@@ -25,11 +23,10 @@ const HomeNavigator = () => {
       initialRouteName={"Home"}
     >
       <HomeStack.Screen name="Home" component={Home} />
-      <HomeStack.Screen name="Reviews" component={MovieReviews} />
     </HomeStack.Navigator>
   );
 };
-
+// Create Profile stackNavigator
 const ProfileStack = createStackNavigator();
 const ProfileNavigator = () => {
   return (
@@ -44,7 +41,7 @@ const ProfileNavigator = () => {
     </ProfileStack.Navigator>
   );
 };
-
+// Create Movie stackNavigator
 const MovieStack = createStackNavigator();
 const MovieNavigator = () => {
   return (

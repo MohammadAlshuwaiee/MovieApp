@@ -7,6 +7,7 @@ class RoomStore {
   constructor() {
     makeAutoObservable(this);
   }
+  //fetch room
   fetchRooms = async () => {
     try {
       const res = await instance.get("/rooms");
@@ -16,6 +17,7 @@ class RoomStore {
       console.log(error);
     }
   };
+  //create room
   createRoom = async (newRoom) => {
     try {
       const res = await instance.post("/rooms", newRoom);
@@ -24,6 +26,7 @@ class RoomStore {
       console.log(error);
     }
   };
+  //update room
   updateRoom = async (updatedRoom) => {
     try {
       await instance.put(`/rooms/${updatedRoom.id}`, updatedRoom);
@@ -35,6 +38,8 @@ class RoomStore {
       console.log(error);
     }
   };
+
+  //delete room
   deleteRoom = async (roomID) => {
     try {
       await instance.delete(`/rooms/${id}`);

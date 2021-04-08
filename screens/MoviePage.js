@@ -9,14 +9,26 @@ import {
   DetailsText,
   MovieText,
 } from "../styles";
-import { Rating, AirbnbRating } from "react-native-ratings"; //5.3.0
-import { Button } from "native-base";
 
 const MoviePage = ({ navigation, route }) => {
   const { movie } = route.params;
 
   return (
     <HomeWrapper>
+      <Text
+        style={{
+          color: "white",
+          fontWeight: "bold",
+          fontSize: 25,
+          paddingBottom: -10,
+
+          alignItems: "center",
+          marginBottom: 50,
+        }}
+      >
+        Movie Details
+      </Text>
+      {/*  Single Movie image  */}
       <Posterimage
         onPress={() => navigation.navigate("Home")}
         source={{ uri: `${movie.image}` }}
@@ -32,6 +44,7 @@ const MoviePage = ({ navigation, route }) => {
               uri: "https://vectorified.com/images/gold-star-icon-5.png",
             }}
           />
+          {/* Movie Details  */}
         </DetailsText>
       </DetailsWrapper>
       <TouchableOpacity>
@@ -39,7 +52,7 @@ const MoviePage = ({ navigation, route }) => {
       </TouchableOpacity>
       <TouchableOpacity>
         <Watchbutton
-          onPress={() => navigation.navigate("Reviews", { movie: movie })}
+          onPress={() => navigation.navigate("Movie Reviews", { movie: movie })}
         >
           Reviews
         </Watchbutton>

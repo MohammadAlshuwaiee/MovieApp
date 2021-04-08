@@ -245,10 +245,7 @@ const Home = ({ navigation }) => {
             alignItems: "center",
           }}
         >
-          <Text
-            onPress={() => navigation.navigate("Reviews")}
-            style={{ flex: 1, color: COLORS.white, ...FONTS.h2 }}
-          >
+          <Text style={{ flex: 1, color: COLORS.white, ...FONTS.h2 }}>
             Continue Watching
           </Text>
 
