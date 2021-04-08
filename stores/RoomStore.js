@@ -4,10 +4,11 @@ import instance from "./instance";
 class RoomStore {
   rooms = [];
   loading = true;
+
   constructor() {
     makeAutoObservable(this);
   }
-  //fetch room
+
   fetchRooms = async () => {
     try {
       const res = await instance.get("/rooms");
@@ -17,7 +18,7 @@ class RoomStore {
       console.log(error);
     }
   };
-  //create room
+
   createRoom = async (newRoom) => {
     try {
       const res = await instance.post("/rooms", newRoom);
@@ -26,7 +27,7 @@ class RoomStore {
       console.log(error);
     }
   };
-  //update room
+
   updateRoom = async (updatedRoom) => {
     try {
       await instance.put(`/rooms/${updatedRoom.id}`, updatedRoom);
@@ -39,16 +40,17 @@ class RoomStore {
     }
   };
 
-  //delete room
-  deleteRoom = async (roomID) => {
+  deleteRoom = async (id) => {
     try {
       await instance.delete(`/rooms/${id}`);
-      this.rooms = this.rooms.filter((room) => room.id !== +roomID);
+      this.rooms = this.rooms.filter((room) => room.id !== +id);
     } catch (error) {
       console.log(error);
     }
   };
 }
+
 const roomStore = new RoomStore();
 roomStore.fetchRooms();
+
 export default roomStore;

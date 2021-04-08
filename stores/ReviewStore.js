@@ -2,9 +2,10 @@ import { makeAutoObservable } from "mobx";
 //import from instance
 import instance from "./instance";
 
-class Review {
+class ReviewStore {
   reviews = [];
   loading = true;
+
   constructor() {
     makeAutoObservable(this);
   }
@@ -54,5 +55,5 @@ class Review {
   };
 }
 const reviewStore = new ReviewStore();
-reviewStore.fetchReviews();
+
 export default reviewStore;
